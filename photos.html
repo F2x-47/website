@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes projets de programmation</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📷</text></svg>">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #e7e7e7;
+            padding: 10px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            background-color: #d4d4d4;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #c4c4c4;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button onclick="showContent('home')">Accueil</button>
+        <button onclick="showContent('pref')">Mes photos préférées</button>
+        <button onclick="showContent('paysages')">Mes photos de paysages</button>
+        <button onclick="showContent('animal')">Mes photos d'animaux</button>
+        <button onclick="returnToHome()">Retour à l'accueil</button>
+    </div>
+
+    <div class="content" id="content">
+        <h1>Bienvenue sur ma page où sont exposés mes plus belles photos.</h1>
+        <p>J'ai plusieurs appareils photos pour différents cas de figures :</p>
+        <ul>
+            <li>Canon EOS 760D : pour toutes les photos sans beaucoup de mouvements et pour des photos de bonnes qualitées.</li>
+            <li>GoPro Hero 13 Black : pour des photos et des vidéos de qualité moyenne mais qui sont dans des milieus aquatiques.</li>
+            <li>SONY Handycam : pour des photos et des vidéos de bonnes qualitées, pour des photos et des vidéos qui nécessite un zoom.</li>
+        </ul>
+    </div>
+
+    <script>
+        function showContent(page) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = ''; // Supprime l'ancien contenu
+
+            if (page === 'home') {
+                contentDiv.innerHTML = `
+                    <h1>Bienvenue sur ma page où sont exposés mes plus belles photos.</h1>
+                    <p>J'ai plusieurs appareils photos pour différents cas de figures :</p>
+                    <ul>
+                        <li>Canon EOS 760D : pour toutes les photos sans beaucoup de mouvements et pour des photos de bonnes qualitées.</li>
+                        <li>GoPro Hero 13 Black : pour des photos et des vidéos de qualité moyenne mais qui sont dans des milieus aquatiques.</li>
+                        <li>SONY Handycam : pour des photos et des vidéos de bonnes qualitées, pour des photos et des vidéos qui nécessite un zoom.</li>
+                    </ul>
+                `;
+                history.pushState(null, '', '/');
+            } 
+            else if (page === 'pref') {
+                contentDiv.innerHTML = `
+                    <h1>Découvrez mes ici mes photos préférées.</h1>
+                `;
+                history.pushState(null, '', '?page=favorite');
+            }
+            else if (page === 'paysages') {
+                contentDiv.innerHTML = `
+                    <h1>Découvrez mes ici mes photos de paysages.</h1>
+                `;
+                history.pushState(null, '', '?page=paysages');
+            }
+            else if (page === 'animal') {
+                contentDiv.innerHTML = `
+                    <h1>Découvrez mes ici mes photos d'animaux.</h1>
+                `;
+                history.pushState(null, '', '?page=animaux');
+            }
+        }
+
+        function returnToHome() {
+            window.location.href = 'index.html';
+        }
+
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const page = params.get('page');
+            if (page) {
+                showContent(page);
+            } else {
+                showContent('home');
+            }
+        };
+    </script>
+</body>
+</html>
