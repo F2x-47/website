@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pandak.online</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      margin: 0;
+    }
+    .sidebar {
+      width: 200px;
+      background-color: #e7e7e7;
+      padding: 10px;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+    }
+    .content {
+      margin-left: 220px;
+      padding: 20px;
+      width: calc(100% - 220px);
+    }
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      background-color: #d4d4d4;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #c4c4c4;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <button onclick="showContent('home')">Accueil</button>
+  <button onclick="showContent('links')">Mes liens</button>
+  <button onclick="showContent('passions')">Mes passions</button>
+  <button onclick="openRotorWings()">RotorWings</button>
+</div>
+
+<div class="content" id="content">
+  <h1>Bienvenue sur pandak.online, le site de Pandak</h1>
+  <p>Je suis Pandak (ou F2x-47 sur certains réseaux), je suis un dévelopeur et un gamer (Minecraft).</p>
+</div>
+
+<script>
+  function showContent(page) {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = ''; // Supprime l'ancien contenu
+
+    if (page === 'home') {
+      contentDiv.innerHTML = `
+        <h1>Bienvenue sur pandak.online, le site de Pandak</h1>
+        <p>Je suis Pandak (ou F2x-47) sur certains réseaux, je suis un dévelopeur et un gamer (Minecraft).</p>
+      `;
+      history.pushState(null, '', '/');
+    } 
+    else if (page === 'links') {
+      contentDiv.innerHTML = `
+        <h1>Découvrez mes liens utiles :</h1>
+        <ul>
+          <li><a href="https://guns.lol/pandak" target="_blank">Ma page avec mes principaux liens</a></li>
+          <li><a href="https://open.spotify.com/user/31hf3glf7hsf36keo343cyttneoy?si=5945412984144455" target="_blank">Mon profil Spotify</a></li>
+          <li><a href="https://github.com/F2x-47" target="_blank">Mon compte GitHub : découvrez mes principaux projets publics</a></li>
+        </ul>
+      `;
+      history.pushState(null, '', '?page=links');
+    } 
+    else if (page === 'passions') {
+      contentDiv.innerHTML = `
+        <h1> Découvrez ici mes différentes passions</h1>
+        <h3>Programmation</h3>
+        <p>Je suis un développeur dans plusieurs langages : Python, HTML, JavaScript et CSS.</p>
+        <button onclick="openProg()">Découvrez ici mes plus grands projets de programmation</button>
+        <p>Si vous voulez voir le code de mes projets publics veuillez vous rendre sur <a href="https://github.com/F2x-47" target="_blank">mon compte GitHub</a>.</p>
+        <br>
+        <h3>Photographie</h3>
+        <p>Je prend beaucoup de photos de paysages, d'animaux et de nature.</p>
+        <button onclick="openPhotos()">Découvrez ici mes plus belles photos</button>
+        <br>
+        <h3>Minecraft</h3>
+        <p>J'aime beaucoup le jeu Minecraft, particulièrement dans un certain mode de jeu : l'anarchie en multijoueur. Il n'y a aucune règles et donc tout est permis.</p>
+        <p>Je joue à Minecraft depuis environ 2022, ce qui signifie que j'ai pu effectuer de nombreuses choses au fil de mes projets en solo ou en multijoueur.</p>
+        <button onclick="openMcAnarchy()">Découvrir mes projets en anarchie sur Minecraft</button>
+      `;
+      history.pushState(null, '', '?page=passions');
+    }
+  }
+
+  function openRotorWings() {
+    window.location.href = 'rotorwings.html';
+  }
+
+  function openMcAnarchy() {
+    window.location.href = 'mc-anarchy.html';
+  }
+
+  function openProg() {
+    window.location.href = 'prog.html';
+  }
+
+  function openPhotos() {
+    window.location.href = 'photos.html';
+  }
+
+  // Au chargement, afficher la bonne page selon l'URL
+  window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get('page');
+    if (page) {
+      showContent(page);
+    } else {
+      showContent('home');
+    }
+  };
+</script>
+
+</body>
+</html>
