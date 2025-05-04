@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes projets en anarchie Minecraft</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔨</text></svg>">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #e7e7e7;
+            padding: 10px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+        }
+
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            background-color: #d4d4d4;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #c4c4c4;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button onclick="showContent('home')">Accueil</button>
+        <button onclick="showContent('2b2fr')">2b2fr</button>
+        <button onclick="returnToHome()">Retour à l'accueil</button>
+    </div>
+
+    <div class="content" id="content">
+        <h1>Bienvenue sur la page pour mes projets sur Minecraft</h1>
+        <p>J'ai commencé à jouer à Minecraft environ en 2022.</p>
+      </div>
+
+    <script>
+        function showContent(page) {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = ''; // Supprime l'ancien contenu
+
+            if (page === 'home') {
+            contentDiv.innerHTML = `
+                <h1>Bienvenue sur la page pour mes projets sur Minecraft</h1>
+                <p>J'ai commencé à jouer à Minecraft environ en 2022.</p>
+            `;
+            history.pushState(null, '', '/');
+            } 
+            else if (page === '2b2fr') {
+            contentDiv.innerHTML = `
+                <h1>Découvrez mes ici tout mes projets sur le serveur anarchie français 2b2fr</h1>
+            `;
+            history.pushState(null, '', '?page=links');
+            }
+        }
+
+        function returnToHome() {
+            window.location.href = 'index.html';
+        }
+
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const page = params.get('page');
+            if (page) {
+                showContent(page);
+            } else {
+                showContent('home');
+            }
+        };
+    </script>
+</body>
+</html>
