@@ -48,6 +48,7 @@ button {
 button:hover {
   background-color: #717171;
   transform: scale(1.03);
+  cursor: pointer;
 }
 
 a {
@@ -58,6 +59,7 @@ a {
 
 a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -70,7 +72,8 @@ a:hover {
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 1000;
+  z-index: 1001;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -78,11 +81,12 @@ a:hover {
     transform: translateX(-100%);
     position: fixed;
     height: 100vh;
-    z-index: 999;
+    z-index: 1000;
   }
 
   .sidebar.show {
     transform: translateX(0);
+    left: 0;
   }
 
   .content {
