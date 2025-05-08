@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pandak.online - Programmation</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
             display: flex;
             margin: 0;
+            background-color: #212121;
+            color: whitesmoke;
+        }
+
+        h1 {
+          font: "DM Serif Text", serif;
+        }
+    
+        .content p.roboto {
+          font-family: "Roboto Condensed", sans-serif;
         }
 
         .sidebar {
             width: 200px;
-            background-color: #e7e7e7;
+            background-color: #1e1d1d;
             padding: 10px;
             height: 100vh;
             position: fixed;
@@ -33,26 +45,28 @@
             margin: 10px 0;
             padding: 10px;
             border: none;
-            background-color: #d4d4d4;
+            background-color: #646464;
             cursor: pointer;
             font-size: 16px;
         }
 
         button:hover {
-            background-color: #c4c4c4;
+            background-color: #717171;
+            transform: scale(1.03);
         }
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <button onclick="showContent('home')">Accueil</button>
-        <button onclick="showContent('projet')">Mes plus grands projets</button>
-        <button onclick="showContent('rotorwings')">Mon projet de site d'aeronautique</button>
-        <button onclick="returnToHome()">Retour à l'accueil</button>
+        <button onclick="showContent('home')">Home</button>
+        <button onclick="showContent('projects')">My main projetcs</button>
+        <button onclick="showContent('rotorwings')">My aeronautic project</button>
+        <button onclick="returnToHome()">Return to the home of pandak.online</button>
     </div>
 
     <div class="content" id="content">
-        <h1>Bienvenue sur ma page pour découvrir mes projets de programmation.</h1>
+        <h1>Welcome to the page of pandak.online to discover my code projects.</h1>
+        <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
     </div>
 
     <script>
@@ -62,19 +76,20 @@
 
             if (page === 'home') {
                 contentDiv.innerHTML = `
-                    <h1>Bienvenue sur ma page pour découvrir mes projets de programmation.</h1>
+                    <h1>Welcome to the page of pandak.online to discover my code projects.</h1>
+                    <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
                 `;
                 history.pushState(null, '', '/');
             }
-            else if (page === 'projet') {
+            else if (page === 'projects') {
                 contentDiv.innerHTML = `
-                    <h1>Mes différents projets.</h1>
+                    <h1>My main projects</h1>
                 `;
-                history.pushState(null, '', '?page=projet');
+                history.pushState(null, '', '?page=projects');
             }
             else if (page === 'rotorwings') {
                 contentDiv.innerHTML = `
-                    <h1>Mon projet avec le plus de lignes de code.</h1>
+                    <h1>My bigger project</h1>
                 `;
                 history.pushState(null, '', '?page=rotorwings');
             }
