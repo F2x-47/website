@@ -59,65 +59,39 @@
 <body>
 
 <div class="sidebar">
-  <button onclick="showContent('home')">Accueil</button>
-  <button onclick="showContent('links')">Mes liens</button>
-  <button onclick="showContent('passions')">Mes passions</button>
-  <button onclick="openRotorWings()">RotorWings</button>
+  <button onclick="showContent('home')">Home</button>
+  <button onclick="showContent('links')">My links</button>
+  <button onclick="openMcAnarchy">Me in Minecraft</button>
 </div>
 
 <div class="content" id="content">
-  <h1>Bienvenue sur pandak.online, le site officiel de Pandak</h1>
-  <p class="roboto">Je suis Pandak (ou F2x-47 sur certains réseaux), je suis un développeur et un gamer (Minecraft).</p>
-  <p class="roboto">Découvrez sur mon site mes passions, mon portefolio et les liens de mes réseaux sociaux.</p>
+  <h1>Welcome on pandak.online, the official web site of Pandak.</h1>
+  <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
 </div>
 
 <script>
   function showContent(page) {
     const contentDiv = document.getElementById('content');
-    contentDiv.innerHTML = ''; // Supprime l'ancien contenu
+    contentDiv.innerHTML = '';
 
     if (page === 'home') {
       contentDiv.innerHTML = `
-        <h1>Bienvenue sur pandak.online, le site officiel de Pandak</h1>
-        <p class="roboto">Je suis Pandak (ou F2x-47) sur certains réseaux, je suis un dévelopeur et un gamer (Minecraft).</p>
-        <p class="roboto">Découvrez sur mon site mes passions, mon portefolio et les liens de mes réseaux sociaux.</p>
+        <h1>Welcome on pandak.online, the official web site of Pandak.</h1>
+        <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
       `;
       history.pushState(null, '', '?page=home');
     } 
     else if (page === 'links') {
       contentDiv.innerHTML = `
-        <h1>Découvrez mes liens utiles :</h1>
+        <h1>Discover here my links</h1>
         <ul>
-          <li><a href="https://guns.lol/pandak" target="_blank">Ma page avec les principaux liens de mes réseaux sociaux</a></li>
-          <li><a href="https://open.spotify.com/user/31hf3glf7hsf36keo343cyttneoy?si=5945412984144455" target="_blank">Mon profil Spotify</a></li>
-          <li><a href="https://github.com/F2x-47" target="_blank">Mon compte GitHub : découvrez mes principaux projets publics</a></li>
+          <li><a href="https://guns.lol/pandak" target="_blank">The web site with my main links</a></li>
+          <li><a href="https://open.spotify.com/user/31hf3glf7hsf36keo343cyttneoy?si=5945412984144455" target="_blank">My Spotify profile</a></li>
+          <li><a href="https://github.com/F2x-47" target="_blank">My GitHub profile : discover my main code projects</a></li>
         </ul>
       `;
       history.pushState(null, '', '?page=links');
-    } 
-    else if (page === 'passions') {
-      contentDiv.innerHTML = `
-        <h1> Découvrez ici mes différentes passions</h1>
-        <h3>Programmation</h3>
-        <p>Je suis un développeur dans plusieurs langages : Python, HTML, JavaScript et CSS.</p>
-        <button onclick="openProg()">Découvrez ici mes plus grands projets de programmation</button>
-        <p>Si vous voulez voir le code de mes projets publics veuillez vous rendre sur <a href="https://github.com/F2x-47" target="_blank">mon compte GitHub</a>.</p>
-        <br>
-        <h3>Photographie</h3>
-        <p>Je prend beaucoup de photos de paysages, d'animaux et de nature.</p>
-        <button onclick="openPhotos()">Découvrez ici mes plus belles photos</button>
-        <br>
-        <h3>Minecraft</h3>
-        <p>J'aime beaucoup le jeu Minecraft, particulièrement dans un certain mode de jeu : l'anarchie en multijoueur. Il n'y a aucune règles et donc tout est permis.</p>
-        <p>Je joue à Minecraft depuis environ 2022, ce qui signifie que j'ai pu effectuer de nombreuses choses au fil de mes projets en solo ou en multijoueur.</p>
-        <button onclick="openMcAnarchy()">Découvrir mes projets en anarchie sur Minecraft</button>
-      `;
-      history.pushState(null, '', '?page=passions');
     }
-  }
-
-  function openRotorWings() {
-    window.location.href = 'rotorwings.html';
   }
 
   function openMcAnarchy() {
@@ -128,11 +102,6 @@
     window.location.href = 'prog.html';
   }
 
-  function openPhotos() {
-    window.location.href = 'photos.html';
-  }
-
-  // Au chargement, afficher la bonne page selon l'URL
   window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const page = params.get('page');
