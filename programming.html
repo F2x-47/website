@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>pandak.online - Programming</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
@@ -22,8 +22,7 @@
 </div>
 
 <div class="content" id="content">
-  <h1>Welcome to the page of pandak.online to discover my code projects.</h1>
-  <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
+  <!-- Content will be loaded here -->
 </div>
 
 <script>
@@ -41,33 +40,23 @@
         <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
       `;
       history.pushState(null, '', './programming.html?page=home');
-    }
-    else if (page === 'projects') {
-      contentDiv.innerHTML = `
-        <h1>My main projects</h1>
-      `;
+    } else if (page === 'projects') {
+      contentDiv.innerHTML = `<h1>My main projects</h1>`;
       history.pushState(null, '', './programming.html?page=projects');
-    }
-    else if (page === 'rotorwings') {
-      contentDiv.innerHTML = `
-        <h1>My bigger project</h1>
-      `;
+    } else if (page === 'rotorwings') {
+      contentDiv.innerHTML = `<h1>My bigger project</h1>`;
       history.pushState(null, '', './programming.html?page=rotorwings');
     }
   }
 
   function returnToHome() {
-    window.location.href = './website/index.html';
+    window.location.href = './index.html';
   }
 
   window.onload = function () {
     const params = new URLSearchParams(window.location.search);
     const page = params.get('page');
-    if (page) {
-      showContent(page);
-    } else {
-      showContent('home');
-    }
+    showContent(page || 'home');
   };
 </script>
 
