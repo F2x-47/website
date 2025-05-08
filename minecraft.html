@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pandak.online - Minecraft</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔨</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pandak.online - Minecraft</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔨</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="sidebar">
-        <button onclick="showContent('home')">Home</button>
-        <button onclick="showContent('anarchy')">Anarchy</button>
-        <button onclick="returnToHome()">Return to the home of pandak.online</button>
-    </div>
 
-    <div class="content" id="content">
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<div class="sidebar" id="sidebar">
+  <button onclick="toggleSidebar(); showContent('home')">Home</button>
+  <button onclick="toggleSidebar(); showContent('anarchy')">Anarchy</button>
+  <button onclick="toggleSidebar(); returnToHome()">Return to the home of pandak.online</button>
+</div>
+
+<div class="content" id="content">
+  <h1>Welcome to my page for discover my projects on the Minecraft anarchy servers.</h1>
+  <p class="roboto">I started to play to Minecraft in 2022.</p>
+  <p class="roboto"><a href="https://namemc.com/profile/Pandak_x.1" target="_blank">My Minecraft account</a></p>
+</div>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('show');
+  }
+
+  function showContent(page) {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = '';
+
+    if (page === 'home') {
+      contentDiv.innerHTML = `
         <h1>Welcome to my page for discover my projects on the Minecraft anarchy servers.</h1>
         <p class="roboto">I started to play to Minecraft in 2022.</p>
         <p class="roboto"><a href="https://namemc.com/profile/Pandak_x.1" target="_blank">My Minecraft account</a></p>
-      </div>
+      `;
+      history.pushState(null, '', './minecraft.html?page=home');
+    } else if (page === 'anarchy') {
+      contentDiv.innerHTML = `
+        <h1>Discover my projects on the French Minecraft anarchy servers here.</h1>
+      `;
+      history.pushState(null, '', './minecraft.html?page=anarchy');
+    }
+  }
 
-    <script>
-        function showContent(page) {
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = '';
+  function returnToHome() {
+    window.location.href = './index.html';
+  }
 
-            if (page === 'home') {
-            contentDiv.innerHTML = `
-                <h1>Welcome to my page for discover my projects on the Minecraft anarchy servers.</h1>
-                <p class="roboto">I started to play to Minecraft in 2022.</p>
-                <p class="roboto"><a href="https://namemc.com/profile/Pandak_x.1" target="_blank">My Minecraft account</a></p>
-            `;
-            history.pushState(null, '', './minecraft.html?page=home');
-            } 
-            else if (page === 'anarchy') {
-            contentDiv.innerHTML = `
-                <h1>Discover my projects on the French Minecraft anarchy servers here.</h1>
-            `;
-            history.pushState(null, '', './minecraft.html?page=anarchy');
-            }
-        }
+  window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get('page');
+    if (page) {
+      showContent(page);
+    } else {
+      showContent('home');
+    }
+  };
+</script>
 
-        function returnToHome() {
-            window.location.href = './index.html';
-        }
-
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            const page = params.get('page');
-            if (page) {
-                showContent(page);
-            } else {
-                showContent('home');
-            }
-        };
-    </script>
 </body>
 </html>
