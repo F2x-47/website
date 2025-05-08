@@ -87,12 +87,12 @@
             contentDiv.innerHTML = `
                 <h1>Discover my projects on the French Minecraft anarchy servers here.</h1>
             `;
-            history.pushState(null, '', '?page=anarchy');
+            history.pushState(null, '', './mc-anarchy.html?page=anarchy');
             }
         }
 
         function returnToHome() {
-            window.location.href = '../index.html';
+            window.location.href = './website/index.html';
         }
 
         window.onload = function() {
