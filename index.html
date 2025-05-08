@@ -10,14 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
   <style>
     body {
-      display: flex;
       margin: 0;
       background-color: #212121;
       color: whitesmoke;
+      font-family: sans-serif;
     }
 
     h1 {
-      font: "DM Serif Text", serif;
+      font-family: "DM Serif Text", serif;
     }
 
     .content p.roboto {
@@ -31,12 +31,14 @@
       height: 100vh;
       position: fixed;
       overflow-y: auto;
+      transition: transform 0.3s ease;
     }
 
     .content {
       margin-left: 220px;
       padding: 20px;
       width: calc(100% - 220px);
+      transition: margin-left 0.3s ease;
     }
 
     button {
@@ -54,15 +56,54 @@
       background-color: #717171;
       transform: scale(1.03);
     }
+
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      background-color: #1e1d1d;
+      color: white;
+      padding: 10px;
+      font-size: 20px;
+      border: none;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        height: 100vh;
+        z-index: 999;
+      }
+
+      .sidebar.show {
+        transform: translateX(0);
+      }
+
+      .content {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <button onclick="showContent('home')">Home</button>
-  <button onclick="showContent('links')">My links</button>
-  <button onclick="openMcAnarchy()">Me in Minecraft</button>
-  <button onclick="openProg()">My code projects</button>
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<div class="sidebar" id="sidebar">
+  <button onclick="toggleSidebar(); showContent('home')">Home</button>
+  <button onclick="toggleSidebar(); showContent('links')">My links</button>
+  <button onclick="toggleSidebar(); openMcAnarchy()">Me in Minecraft</button>
+  <button onclick="toggleSidebar(); openProg()">My code projects</button>
 </div>
 
 <div class="content" id="content">
@@ -71,6 +112,10 @@
 </div>
 
 <script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('show');
+  }
+
   function showContent(page) {
     const contentDiv = document.getElementById('content');
     contentDiv.innerHTML = '';
