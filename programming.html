@@ -17,7 +17,7 @@
 <div class="sidebar" id="sidebar">
   <button onclick="toggleSidebar(); showContent('home')">Home</button>
   <button onclick="toggleSidebar(); showContent('projects')">My main projects</button>
-  <button onclick="toggleSidebar(); showContent('rotorwings')">My aeronautic project</button>
+  <button onclick="toggleSidebar(); showContent('languages')">The programming languages ​​I use.</button>
   <button onclick="toggleSidebar(); returnToHome()">Return to the home of pandak.online</button>
 </div>
 
@@ -37,16 +37,31 @@
     if (page === 'home') {
       contentDiv.innerHTML = `
         <h1>Welcome to the page of pandak.online to discover my code projects.</h1>
+        <hr class="separator">
         <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
       `;
       history.pushState(null, '', './programming.html?page=home');
     } else if (page === 'projects') {
-      contentDiv.innerHTML = `<h1>My main projects</h1>`;
+      contentDiv.innerHTML = `
+        <h1>My main projects</h1>
+        <hr class="separator">
+      `;
       history.pushState(null, '', './programming.html?page=projects');
-    } else if (page === 'rotorwings') {
-      contentDiv.innerHTML = `<h1>My bigger project</h1>`;
-      history.pushState(null, '', './programming.html?page=rotorwings');
-    }
+    } else if (page === 'languages') {
+      contentDiv.innerHTML = `
+        <h1>The programming languages ​​I use.</h1>
+        <hr class="separator">
+        <h3>HTML</h3>
+        <hr class="separator">
+        <h3>JavaScript</h3>
+        <hr class="separator">
+        <h3>CSS</h3>
+        <hr class="separator">
+        <h3>Python</h3>
+        <hr class="separator">
+        <h3>JAVA</h3>
+      `;
+      history.pushState(null, '', './programming.html?page=languages');
   }
 
   function returnToHome() {
