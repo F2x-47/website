@@ -12,6 +12,7 @@ h1 {
 
 h3 a {
   font-size: 20px;
+  color: whitesmoke;
 }
 
 .content p.roboto {
@@ -65,8 +66,7 @@ button:hover {
 }
 
 a {
-  color: whitesmoke;
-  text-decoration: none;
+  color: blue;
   font-size: 16px;
 }
 
