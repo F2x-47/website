@@ -89,12 +89,16 @@ a:hover {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) { /* Avant '768px' */
   .sidebar {
     transform: translateX(-100%);
     position: fixed;
     height: 100vh;
     z-index: 1000;
+  }
+
+  .sidebar button {
+    margin-top: 60px;
   }
 
   .sidebar.show {
