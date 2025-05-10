@@ -122,3 +122,24 @@ a:hover {
   transform: translateX(0);
   left: 0;
 }
+
+footer {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #66ccff;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
