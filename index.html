@@ -14,11 +14,6 @@
 
 <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
-<div class="lang-flags">
-  <img src="https://flagcdn.com/w20/fr.png" alt="Français" onclick="setLanguage('fr')">
-  <img src="https://flagcdn.com/w20/gb.png" alt="English" onclick="setLanguage('en')">
-</div>
-
 <div class="sidebar" id="sidebar">
   <button onclick="toggleSidebar(); showContent('home')">Home</button>
   <button onclick="toggleSidebar(); showContent('links')">My links</button>
@@ -79,42 +74,6 @@
       showContent('home');
     }
   };
-
-// Fonction des boutons fr/en
-function setLanguage(lang) {
-  if (lang === 'fr') {
-    showContent(currentPage || 'home', 'fr');
-  } else {
-    showContent(currentPage || 'home', 'en');
-  }
-}
-
-// Tu peux stocker la page actuelle pour le changement de langue :
-let currentPage = 'home';
-
-// Et modifie légèrement ta fonction showContent (exemple simplifié) :
-function showContent(page, lang = 'en') {
-  currentPage = page;
-  const contentDiv = document.getElementById('content');
-  contentDiv.innerHTML = '';
-
-  if (page === 'home') {
-    if (lang === 'fr') {
-      contentDiv.innerHTML = `
-        <h1>Bienvenue sur la page de mes projets de code.</h1>
-        <hr class="separator">
-        <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">Mon profil GitHub</a></p>
-      `;
-    } else {
-      contentDiv.innerHTML = `
-        <h1>Welcome to the page of pandak.online to discover my code projects.</h1>
-        <hr class="separator">
-        <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
-      `;
-    }
-    history.pushState(null, '', `./programming.html?page=${page}&lang=${lang}`);
-  }
-}
 </script>
 
 </body>
