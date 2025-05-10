@@ -11,25 +11,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="page-container">
 
-<button class="hamburger" onclick="toggleSidebar()">☰</button>
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
-<div class="sidebar" id="sidebar">
-  <button onclick="toggleSidebar(); showContent('home')">Home</button>
-  <button onclick="toggleSidebar(); showContent('links')">My links</button>
-  <button onclick="toggleSidebar(); openMinecraft()">Me in Minecraft</button>
-  <button onclick="toggleSidebar(); openProg()">My code projects</button>
+  <div class="sidebar" id="sidebar">
+    <button onclick="toggleSidebar(); showContent('home')">Home</button>
+    <button onclick="toggleSidebar(); showContent('links')">My links</button>
+    <button onclick="toggleSidebar(); openMinecraft()">Me in Minecraft</button>
+    <button onclick="toggleSidebar(); openProg()">My code projects</button>
+  </div>
+
+  <div class="content" id="content">
+    <h1>Welcome on pandak.online, the official web site of Pandak.</h1>
+    <hr class="separator">
+    <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
+  </div>
+
+  <footer>
+    <p>© 2025 pandak.online</p>
+  </footer>
+
 </div>
-
-<div class="content" id="content">
-  <h1>Welcome on pandak.online, the official web site of Pandak.</h1>
-  <hr class="separator">
-  <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
-</div>
-
-<footer>
-  <p>© 2025 pandak.online</p>
-</footer>
 
 <script>
   function toggleSidebar() {
