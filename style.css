@@ -89,7 +89,7 @@ a:hover {
   cursor: pointer;
 }
 
-@media (max-width: 600px) { /* Avant '768px' */
+@media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
     position: fixed;
