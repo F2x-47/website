@@ -1,43 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>pandak.online</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body.light-theme {
-      background-color: #ffffff;
-      color: #000000;
-    }
-    body.dark-theme {
-      background-color: #121212;
-      color: #f0f0f0;
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 8px 12px;
-      background-color: #444;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      z-index: 1000;
-    }
-    .theme-toggle:hover {
-      background-color: #666;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
 <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
 <div class="sidebar" id="sidebar">
@@ -49,7 +23,7 @@
 
 <div class="content" id="content">
   <h1>Welcome on pandak.online, the official web site of Pandak.</h1>
-  <hr class="separator" />
+  <hr class="separator">
   <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
 </div>
 
@@ -73,7 +47,8 @@
         <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
       `;
       history.pushState(null, '', './index.html?page=home');
-    } else if (page === 'links') {
+    } 
+    else if (page === 'links') {
       contentDiv.innerHTML = `
         <h1>Discover here my links</h1>
         <ul>
@@ -94,24 +69,14 @@
     window.location.href = './programming.html';
   }
 
-  function toggleTheme() {
-    const body = document.body;
-    if (body.classList.contains('dark-theme')) {
-      body.classList.replace('dark-theme', 'light-theme');
-      localStorage.setItem('theme', 'light');
-    } else {
-      body.classList.replace('light-theme', 'dark-theme');
-      localStorage.setItem('theme', 'dark');
-    }
-  }
-
-  window.onload = function () {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.body.classList.add(savedTheme);
-
+  window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const page = params.get('page');
-    showContent(page || 'home');
+    if (page) {
+      showContent(page);
+    } else {
+      showContent('home');
+    }
   };
 </script>
 
