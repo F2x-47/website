@@ -11,20 +11,22 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+<div class="page-container">
 
-<button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
-<div class="sidebar" id="sidebar">
-  <button onclick="toggleSidebar(); showContent('home')">Home</button>
-  <button onclick="toggleSidebar(); showContent('projects')">My main projects</button>
-  <button onclick="toggleSidebar(); showContent('languages')">The programming languages ​​I use</button>
-  <button onclick="toggleSidebar(); returnToHome()">Return to the home of pandak.online</button>
-</div>
+    <div class="sidebar" id="sidebar">
+    <button onclick="toggleSidebar(); showContent('home')">Home</button>
+    <button onclick="toggleSidebar(); showContent('projects')">My main projects</button>
+    <button onclick="toggleSidebar(); showContent('languages')">The programming languages ​​I use</button>
+    <button onclick="toggleSidebar(); returnToHome()">Return to the home of pandak.online</button>
+    </div>
 
-<div class="content" id="content">
-  <h1>Welcome to the page of pandak.online. Here you can discover my code projects./h1>
-  <hr class="separator">
-  <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
+    <div class="content" id="content">
+    <h1>Welcome to the page of pandak.online. Here you can discover my code projects./h1>
+    <hr class="separator">
+    <p class="roboto"><a href="https://github.com/F2x-47" target="_blank">My GitHub profile</a></p>
+    </div>
 </div>
 
 <script>
@@ -47,6 +49,9 @@
       contentDiv.innerHTML = `
         <h1>My main projects</h1>
         <hr class="separator">
+        <div class="project">
+            <a href="https://github.com/F2x-47/LatOS" target="_blank">A simple project of simple terminal commands</a>
+        </div>
       `;
       history.pushState(null, '', './programming.html?page=projects');
     } else if (page === 'languages') {
