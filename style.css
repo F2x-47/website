@@ -14,6 +14,7 @@ body {
 
 h1 {
   font-family: "DM Serif Text", serif;
+  font-size: 40px;
 }
 
 h3 a {
@@ -89,26 +90,29 @@ button:hover {
 }
 
 a {
-  color: blue;
-  font-size: 16px;
-  font-size: 18px;
+  color: whitesmoke;
+  font-size: 17.5px;
+  font-family: "Noto Sans", sans-serif;
+  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
   cursor: pointer;
-  font-size: 18.1px;
+  color: rgb(76, 129, 221);
 }
 
 li a {
-  color: blue;
-  font-size: 18px;
+  color: whitesmoke;
+  font-size: 17.5px;
+  text-decoration: none;
 }
 
 li a:hover {
   text-decoration: underline;
+  font-family: "Noto Sans", sans-serif;
   cursor: pointer;
-  font-size: 18.1px;
+  color: rgb(76, 129, 221);
 }
 
 .hamburger {
@@ -177,22 +181,4 @@ footer a {
 
 footer a:hover {
   color: #ffffff;
-}
-
-div.project {
-  background-color: #1e1e1e;
-  border-radius: 10px;
-  width: 200px;
-  height: 100px;
-  text-align: center;
-  align-items: center;
-  display: flex;
-}
-
-div.project a {
-  text-decoration: none;
-}
-
-div.project a:hover {
-  text-decoration: underline;
 }
