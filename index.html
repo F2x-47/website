@@ -20,10 +20,11 @@
     <button onclick="toggleSidebar(); showContent('links')">My links</button>
     <button onclick="toggleSidebar(); openMinecraft()">Me in Minecraft</button>
     <button onclick="toggleSidebar(); openProg()">My code projects</button>
+    <button onclick="toggleSidebar(); showContent('help')">Help</button>
   </div>
 
   <div class="content" id="content">
-    <h1>Welcome on pandak.online, the official web site of Pandak.</h1>
+    <h1>Welcome on pandak.online, the official web site of Pandak</h1>
     <hr class="separator">
     <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
   </div>
@@ -45,7 +46,7 @@
 
     if (page === 'home') {
       contentDiv.innerHTML = `
-        <h1>Welcome on pandak.online, the official web site of Pandak.</h1>
+        <h1>Welcome on pandak.online, the official web site of Pandak</h1>
         <hr class="separator">
         <p class="roboto">I'm a gamer (on Minecraft anarchy) and a developer (HTML, CSS, JS, Python and JAVA).</p>
       `;
@@ -54,6 +55,7 @@
     else if (page === 'links') {
       contentDiv.innerHTML = `
         <h1>Discover here my links</h1>
+        <hr class="separator">
         <ul>
           <li><a href="https://guns.lol/pandak" target="_blank">The web site with my main links (guns.lol)</a></li>
           <li><a href="https://open.spotify.com/user/31hf3glf7hsf36keo343cyttneoy?si=5945412984144455" target="_blank">My Spotify profile</a></li>
@@ -61,6 +63,14 @@
         </ul>
       `;
       history.pushState(null, '', './index.html?page=links');
+    }
+    else if (page === 'help') {
+      contentDiv.innerHTML = `
+        <h1>Informations about pandak.online</h1>
+        <hr class="separator">
+        <p class="roboto">The code of pandak.online is opensource : <a href="https://github.com/F2x-47/website/tree/main" target="_blank">click here if you want to see the code for pandak.online</a>.</p>
+      `;
+      history.pushState(null, '', './index.html?page=help');
     }
   }
 
