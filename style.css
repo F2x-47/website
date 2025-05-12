@@ -175,10 +175,11 @@ footer {
 footer a {
   color: #66ccff;
   text-decoration: none;
-  margin: 0 10px;
+  /* margin: 0 10px; */
   transition: color 0.3s;
 }
 
 footer a:hover {
   color: #ffffff;
+  text-decoration: underline;
 }
