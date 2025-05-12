@@ -25,9 +25,9 @@ h3 a {
 }
 
 h3 a:hover {
-  font-size: 20.1px;
   cursor: pointer;
   text-decoration: underline;
+  color: rgb(255, 255, 255);
 }
 
 .content p.roboto {
@@ -92,7 +92,6 @@ button:hover {
 a {
   color: whitesmoke;
   font-size: 17.5px;
-  font-family: "Noto Sans", sans-serif;
   text-decoration: none;
 }
 
@@ -100,6 +99,12 @@ a:hover {
   text-decoration: underline;
   cursor: pointer;
   color: rgb(76, 129, 221);
+}
+
+li pseudo {
+  color: whitesmoke;
+  font-size: 17.5px;
+  text-decoration: none;
 }
 
 li a {
@@ -110,7 +115,6 @@ li a {
 
 li a:hover {
   text-decoration: underline;
-  font-family: "Noto Sans", sans-serif;
   cursor: pointer;
   color: rgb(76, 129, 221);
 }
@@ -173,13 +177,13 @@ footer {
 }
 
 footer a {
-  color: #66ccff;
+  color: whitesmoke;
   text-decoration: none;
-  /* margin: 0 10px; */
   transition: color 0.3s;
+  font-family: "DM Serif Text", serif;
 }
 
 footer a:hover {
-  color: #ffffff;
+  color: rgb(76, 129, 221);
   text-decoration: underline;
 }
