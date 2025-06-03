@@ -1,34 +1,108 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❌</text></svg>">
-    <title>pandak.online - not available</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chango&family=Lemon&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: black;
-            color: whitesmoke;
-            text-align: center;
-            display: flex;
-            align-items: center;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        h1 {
-            font-family: "DM Serif Text", serif;
-            font-size: 100px;
-            margin-left: 30px;
-        }
+      body {
+        margin: 0;
+        background-color: black;
+        color: whitesmoke;
+        font-family: "Chango", sans-serif;
+      }
 
-        p {
-            font-family: "Roboto Condensed", sans-serif;
-            margin-left: 30px;
-        }
+      section {
+        padding: 100px 20px;
+        text-align: center;
+        border-top: 1px solid #444;
+      }
+
+      h1 {
+        font-size: 250px;
+        margin-top: -10px;
+        letter-spacing: -12px;
+      }
+
+      h2 {
+        font-size: 60px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 24px;
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
+
+        font-family: "Lemon", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        text-align: center;
+        z-index: 1000;
+      }
+
+      nav a {
+        color: whitesmoke;
+        text-decoration: none;
+        margin: 0 20px;
+        font-size: 20px;
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
-    <h1>404.</h1>
-    <br>
-    <p>The pandak.online website is currently unavailable.</p>
-</body>
+  </head>
+  <body>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+      <h1>F2x47</h1>
+      <p>I'm a developer (HTML, CSS, JS and Python) and a gamer (Minecraft).</p>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>I am passionate about computers and science.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Here are my latest programming projects: this website, Discord bot, Minecraft bot, AI…</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p>HTML, CSS, JavaScript, Python, Java (Minecraft), Git, Discord.js, UI Design… and always learning more.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>You can contact me on Discord : <strong>pandak1876</strong></p>
+    </section>
+  </body>
 </html>
